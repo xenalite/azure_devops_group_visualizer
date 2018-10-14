@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevOps.Cmdlets.Common", "DevOps.Cmdlets.Common\DevOps.Cmdlets.Common.csproj", "{0C6D1CB4-6A3A-46B5-ABB3-ABDE7FB98F17}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevOps.VSTS.Cmdlets", "DevOps.VSTS.Cmdlets\DevOps.VSTS.Cmdlets.csproj", "{A3976FAE-C63B-419D-886F-BCC986866039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevOps.VSTS.Cmdlets", "DevOps.VSTS.Cmdlets\DevOps.VSTS.Cmdlets.csproj", "{A3976FAE-C63B-419D-886F-BCC986866039}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0C6D1CB4-6A3A-46B5-ABB3-ABDE7FB98F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C6D1CB4-6A3A-46B5-ABB3-ABDE7FB98F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C6D1CB4-6A3A-46B5-ABB3-ABDE7FB98F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C6D1CB4-6A3A-46B5-ABB3-ABDE7FB98F17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3976FAE-C63B-419D-886F-BCC986866039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3976FAE-C63B-419D-886F-BCC986866039}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3976FAE-C63B-419D-886F-BCC986866039}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -2,8 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Xml.Linq;
-using DevOps.Cmdlets.Common.Implementation;
 using DevOps.Cmdlets.Common.Utilities;
 using DevOps.VSTS.Cmdlets.Dtos;
 using DevOps.VSTS.Cmdlets.Services;
@@ -12,18 +10,18 @@ using Newtonsoft.Json;
 namespace DevOps.VSTS.Cmdlets.Implementation
 {
     [Cmdlet(VerbsCommon.Get, "IxsVstsUserMembershipsReport")]
-    public class GetVstsUserMembershipsReport : CmdletBase
+    public class GetVstsUserMembershipsReport : Cmdlet
     {
         [Parameter(Mandatory = true)]
         public string JsonInputFilePath { get; set; }
 
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = true)]
         public string DiagramOutputDir { get; set; }
 
         [Parameter(Mandatory = false)]
         public string[] IdentityNamesToCollapse { get; set; } = new string[0];
 
-        protected override void Execute()
+        protected override void ProcessRecord()
         {
             var jsonContent = File.ReadAllText(JsonInputFilePath);
             var projectCollectionMemberships = JsonConvert.DeserializeObject<IdentityMemberships>(jsonContent);
