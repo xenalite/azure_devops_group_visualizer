@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Management.Automation;
-using System.Management.Automation.Tracing;
 using DevOps.VSTS.Cmdlets.Contracts;
 using DevOps.VSTS.Cmdlets.Dtos;
 using DevOps.VSTS.Cmdlets.Services;
 
 namespace DevOps.VSTS.Cmdlets.Implementation
 {
-    [OutputType(typeof(IdentityMemberships))]
     [Cmdlet(VerbsCommon.Get, "IxsVstsUserMemberships")]
-    public class GetVstsUserMemberships : Cmdlet
+    public class GetVstsUserMemberships : CmdletBase
     {
-        [Parameter(Mandatory = true)]
-        public string CollectionUrl { get; set; }
+        [Parameter(Mandatory = true)] public string CollectionUrl { get; set; }
 
-        [Parameter(Mandatory = false)]
-        public string AccessToken { get; set; }
+        [Parameter(Mandatory = false)] public string AccessToken { get; set; }
 
-        [Parameter(Mandatory = false)]
-        public string TenantId { get; set; }
-        
-        protected override void ProcessRecord()
+        [Parameter(Mandatory = false)] public string TenantId { get; set; }
+
+        protected override void Execute()
         {
             using (var facade = CreateFacade())
             {
@@ -39,7 +33,7 @@ namespace DevOps.VSTS.Cmdlets.Implementation
             {
                 AccessToken = AccessToken,
                 CollectionUrl = CollectionUrl,
-                TenantId = Guid.Parse(TenantId)
+                TenantId = Guid.Parse(TenantId ?? Guid.Empty.ToString())
             };
 
             return new VstsConnectionFacade(context);

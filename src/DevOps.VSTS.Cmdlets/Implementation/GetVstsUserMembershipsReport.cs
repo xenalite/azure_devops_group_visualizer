@@ -2,15 +2,15 @@
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using DevOps.Cmdlets.Common.Utilities;
 using DevOps.VSTS.Cmdlets.Dtos;
 using DevOps.VSTS.Cmdlets.Services;
+using DevOps.VSTS.Cmdlets.Utilities;
 using Newtonsoft.Json;
 
 namespace DevOps.VSTS.Cmdlets.Implementation
 {
     [Cmdlet(VerbsCommon.Get, "IxsVstsUserMembershipsReport")]
-    public class GetVstsUserMembershipsReport : Cmdlet
+    public class GetVstsUserMembershipsReport : CmdletBase
     {
         [Parameter(Mandatory = true)]
         public string JsonInputFilePath { get; set; }
@@ -21,7 +21,7 @@ namespace DevOps.VSTS.Cmdlets.Implementation
         [Parameter(Mandatory = false)]
         public string[] IdentityNamesToCollapse { get; set; } = new string[0];
 
-        protected override void ProcessRecord()
+        protected override void Execute()
         {
             var jsonContent = File.ReadAllText(JsonInputFilePath);
             var projectCollectionMemberships = JsonConvert.DeserializeObject<IdentityMemberships>(jsonContent);

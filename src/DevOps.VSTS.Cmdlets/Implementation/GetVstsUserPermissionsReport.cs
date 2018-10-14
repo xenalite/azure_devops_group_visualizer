@@ -7,7 +7,7 @@ using DevOps.VSTS.Cmdlets.Services;
 namespace DevOps.VSTS.Cmdlets.Implementation
 {
     [Cmdlet(VerbsCommon.Get, "IxsVstsUserPermissionsReport")]
-    public class GetVstsUserPermissionsReport : Cmdlet
+    public class GetVstsUserPermissionsReport : CmdletBase
     {
         [Parameter(Mandatory = true)]
         public string VstsAccountUrl { get; set; }
@@ -21,24 +21,17 @@ namespace DevOps.VSTS.Cmdlets.Implementation
         [Parameter(Mandatory = false)]
         public string UserPrincipalNameFilter { get; set; } = "*";
 
-        protected override void ProcessRecord()
+        protected override void Execute()
         {
-            try
+            using (var facade = CreateFacade())
             {
-                using (var facade = CreateFacade())
-                {
-                    var usersProvider = new VstsUserProvider(facade);
-                    var resourceProvider = new VstsResourceProvider(facade);
-                    var permissionsProvider = new VstsPermissionsProvider(resourceProvider, facade);
-                    var reportProducer = new ReportProducer(permissionsProvider, usersProvider);
+                var usersProvider = new VstsUserProvider(facade);
+                var resourceProvider = new VstsResourceProvider(facade);
+                var permissionsProvider = new VstsPermissionsProvider(resourceProvider, facade);
+                var reportProducer = new ReportProducer(permissionsProvider, usersProvider);
 
-                    var report = reportProducer.GetUserPermissionReport(UserPrincipalNameFilter);
-                    WriteObject(report, true);
-                }
-            }
-            catch (Exception e)
-            {
-                WriteError(new ErrorRecord(e, e.Message, ErrorCategory.NotSpecified, null));
+                var report = reportProducer.GetUserPermissionReport(UserPrincipalNameFilter);
+                WriteObject(report, true);
             }
         }
 
@@ -48,7 +41,7 @@ namespace DevOps.VSTS.Cmdlets.Implementation
             {
                 AccessToken = AccessToken,
                 CollectionUrl = VstsAccountUrl,
-                TenantId = Guid.Parse(TenantId)
+                TenantId = Guid.Parse(TenantId ?? Guid.Empty.ToString())
             };
 
             return new VstsConnectionFacade(context);

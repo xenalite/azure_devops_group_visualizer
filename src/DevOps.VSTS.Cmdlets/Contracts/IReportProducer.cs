@@ -5,7 +5,6 @@ namespace DevOps.VSTS.Cmdlets.Contracts
 {
     public interface IReportProducer
     {
-        IEnumerable<AccessLevelEntry> GetUserAccessLevelReport();
         IEnumerable<PermissionEntry> GetUserPermissionReport(string userPrincipalNameFilter);
     }
 }

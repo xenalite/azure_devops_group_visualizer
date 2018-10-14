@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Management.Automation;
-using DevOps.Cmdlets.Common.Contracts;
+using DevOps.VSTS.Cmdlets.Contracts;
 
-namespace DevOps.Cmdlets.Common.Utilities
+namespace DevOps.VSTS.Cmdlets.Utilities
 {
     public class PowerShellLogger : ILogger
     {

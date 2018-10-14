@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevOps.Cmdlets.Common.Contracts
+namespace DevOps.VSTS.Cmdlets.Contracts
 {
     public interface ILogger : IDisposable
     {

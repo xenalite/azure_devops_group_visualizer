@@ -4,7 +4,7 @@ using DevOps.VSTS.Cmdlets.Contracts;
 using DevOps.VSTS.Cmdlets.Dtos;
 using Microsoft.TeamFoundation.Core.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
-using static DevOps.Cmdlets.Common.Utilities.Helpers;
+using static DevOps.VSTS.Cmdlets.Utilities.Helpers;
 
 namespace DevOps.VSTS.Cmdlets.Services
 {

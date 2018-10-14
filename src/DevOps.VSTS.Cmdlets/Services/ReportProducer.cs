@@ -16,18 +16,6 @@ namespace DevOps.VSTS.Cmdlets.Services
             _userProvider = userProvider;
         }
 
-        public IEnumerable<AccessLevelEntry> GetUserAccessLevelReport()
-        {
-            var users = _userProvider.GetUserIdentities();
-            var userEntries = users.Select(user => new AccessLevelEntry
-            {
-                AccessLevel = user.AccessLevel,
-                LastAccessDate = user.LastAccess,
-                Username = user.UniqueName
-            });
-            return userEntries;
-        }
-
         public IEnumerable<PermissionEntry> GetUserPermissionReport(string userPrincipalNameFilter)
         {
             return _userProvider.GetUserIdentities()

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevOps.Cmdlets.Common.Utilities;
 using DevOps.VSTS.Cmdlets.Contracts;
 using DevOps.VSTS.Cmdlets.Dtos;
+using DevOps.VSTS.Cmdlets.Utilities;
 using Microsoft.TeamFoundation.Framework.Client;
 
 namespace DevOps.VSTS.Cmdlets.Services

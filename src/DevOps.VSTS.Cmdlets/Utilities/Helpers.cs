@@ -1,4 +1,4 @@
-﻿namespace DevOps.Cmdlets.Common.Utilities
+﻿namespace DevOps.VSTS.Cmdlets.Utilities
 {
     public static class Helpers
     {

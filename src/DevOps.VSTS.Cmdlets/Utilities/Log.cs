@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DevOps.Cmdlets.Common.Contracts;
+using DevOps.VSTS.Cmdlets.Contracts;
 
-namespace DevOps.Cmdlets.Common.Utilities
+namespace DevOps.VSTS.Cmdlets.Utilities
 {
     public static class Log
     {
