@@ -18,7 +18,7 @@ Colours:
 - Red: Non-compliant direct user assignment to VSTS group
 
 Sample Team Project report:
-[![Sample Report](https://github.com/xenalite/azure_devops_group_visualizer/blob/feature/group_visualizer/sample_diagram.PNG)](https://github.com/xenalite/azure_devops_group_visualizer/blob/feature/group_visualizer/sample_diagram.PNG)
+[![Sample Report](https://github.com/xenalite/azure_devops_group_visualizer/blob/master/sample_diagram.PNG)](https://github.com/xenalite/azure_devops_group_visualizer/blob/master/sample_diagram.PNG)
 
 Usage (TFS):
 ```
